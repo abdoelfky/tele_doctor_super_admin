@@ -62,7 +62,7 @@ class AppCubit extends Cubit<AppState> {
       hospitalLocation:hospitalLocation,
       hospitalName:hospitalName,
       password:password,
-      type: 'admin'
+      type: 'ADMIN'
     );
     FirebaseFirestore.instance
         .collection('admins')
@@ -105,7 +105,7 @@ class AppCubit extends Cubit<AppState> {
       admins1.forEach((element) {
 
         isSuper=true;
-        if(element.type=='admin'){
+        if(element.type=='ADMIN'){
           admins2.add(element);
         }
 

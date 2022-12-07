@@ -3,7 +3,6 @@ import Flutter
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
-  FirebaseApp.configure()
 
   override func application(
     _ application: UIApplication,

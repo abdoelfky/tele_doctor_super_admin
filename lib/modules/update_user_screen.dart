@@ -21,6 +21,7 @@ class UpdateAdminScreen extends StatelessWidget {
   var adminPhoneController = TextEditingController();
   var hospitalNameController = TextEditingController();
   var hospitalLocationController = TextEditingController();
+  var floorNumbersController=TextEditingController();
   var formKey = GlobalKey<FormState>();
 
 
@@ -67,6 +68,7 @@ class UpdateAdminScreen extends StatelessWidget {
           &&admin.hospitalName!=hospitalNameController.text.trim()
           &&admin.hospitalLocation!=hospitalLocationController.text.trim()
           &&admin.phone!=adminPhoneController.text.trim()
+          &&admin.floorNumbers!=floorNumbersController.text.trim()
 
 
           ) {
@@ -77,6 +79,7 @@ class UpdateAdminScreen extends StatelessWidget {
             hospitalNameController.text =admin.hospitalName!;
             hospitalLocationController.text =admin.hospitalLocation!;
             adminPhoneController.text =admin.phone!;
+            floorNumbersController.text=admin.floorNumbers!;
 
           }
           return Scaffold(
@@ -272,18 +275,35 @@ class UpdateAdminScreen extends StatelessWidget {
                         labelText: 'Hospital Location',
                       ),
                       const SizedBox(
+                        height: 25.0,
+                      ),
+                      defaultFormFeild(
+                        cursorColor: primaryColor,
+                        borderColor: Colors.black,
+                        color: Colors.black,
+                        context: context,
+                        validatorText: 'please enter Hospital Floor Numbers',
+                        controller: floorNumbersController,
+                        inputType: TextInputType.number,
+                        prefixIcon: const Icon(
+                          Icons.location_on_outlined,
+                          color: Colors.black,
+                        ),
+                        labelText: 'Hospital Floor Numbers',
+                      ),
+                      const SizedBox(
                         height: 40.0,
                       ),
                       inProgress?const CircularProgressIndicator():Center(
                         child: defaultButton(
                             width: size.width * .7,
+                            height: 60,
                             textColor: Colors.white,
                             context: context,
                             string: 'Update',
                             function: (){
                               if(formKey.currentState!.validate()){
                               cubit.updateAdminData(
-
                                   email: adminEmailController.text.trim(),
                                   password: adminPasswordController.text.trim(),
                                   name: adminNameController.text.trim(),
@@ -291,7 +311,8 @@ class UpdateAdminScreen extends StatelessWidget {
                                   id: adminIdController.text.trim(),
                                   hospitalLocation: hospitalLocationController.text.trim(),
                                   hospitalName: hospitalNameController.text.trim(),
-                                  uId:admin.uId!
+                                  uId:admin.uId!,
+                                  floorNumbers:floorNumbersController.text
                               );}
                             },
                             color: primaryColor),

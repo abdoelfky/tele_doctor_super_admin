@@ -13,6 +13,7 @@ class AddAdminScreen extends StatelessWidget {
   var adminPhoneController = TextEditingController();
   var hospitalNameController = TextEditingController();
   var hospitalLocationController = TextEditingController();
+  var floorNumbersController = TextEditingController();
   var formKey = GlobalKey<FormState>();
 
   @override
@@ -38,6 +39,7 @@ class AddAdminScreen extends StatelessWidget {
               adminPhoneController.text = '';
               hospitalNameController.text ='';
               hospitalLocationController.text ='';
+              floorNumbersController.text='';
               AppCubit.get(context).getUsers();
 
               showToast(
@@ -218,6 +220,23 @@ class AddAdminScreen extends StatelessWidget {
                         labelText: 'Hospital Location',
                       ),
                       const SizedBox(
+                        height: 25.0,
+                      ),
+                      defaultFormFeild(
+                        cursorColor: primaryColor,
+                        borderColor: Colors.black,
+                        color: Colors.black,
+                        context: context,
+                        validatorText: 'please enter Hospital Floor Numbers',
+                        controller: floorNumbersController,
+                        inputType: TextInputType.number,
+                        prefixIcon: const Icon(
+                          Icons.location_on_outlined,
+                          color: Colors.black,
+                        ),
+                        labelText: 'Hospital Floor Numbers',
+                      ),
+                      const SizedBox(
                         height: 40.0,
                       ),
                       inProgress?const CircularProgressIndicator():
@@ -237,7 +256,8 @@ class AddAdminScreen extends StatelessWidget {
                                 phone: adminPhoneController.text.trim(),
                                 id: adminIdController.text.trim(),
                                 hospitalLocation: hospitalLocationController.text.trim(),
-                                hospitalName: hospitalNameController.text.trim()
+                                hospitalName: hospitalNameController.text.trim(),
+                                  floorNumbers:floorNumbersController.text.trim()
                             );
 
                               }

@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
       ],
       child:MaterialApp(
             theme: ThemeData(
-            textTheme: GoogleFonts.lailaTextTheme(
+            textTheme: GoogleFonts.amikoTextTheme(
               Theme.of(context).textTheme,
         ),),
           debugShowCheckedModeBanner: false,

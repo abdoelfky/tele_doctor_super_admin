@@ -22,6 +22,7 @@ class AppCubit extends Cubit<AppState> {
     required String id,
     required String hospitalLocation,
     required String hospitalName,
+    required String floorNumbers
 
 
   }) {
@@ -33,7 +34,8 @@ class AppCubit extends Cubit<AppState> {
       print(value.user?.email);
       print(value.user?.uid);
       userCreate(email: email, name: name,password: password ,phone: phone, uId: value.user?.uid,
-          id:id, hospitalLocation: hospitalLocation, hospitalName:hospitalName);
+          id:id, hospitalLocation: hospitalLocation, hospitalName:hospitalName,
+          floorNumbers: floorNumbers);
       emit(AddNewAdminRegisterSuccessState());
 
     }).catchError((onError) {
@@ -49,7 +51,8 @@ class AppCubit extends Cubit<AppState> {
     required String id,
     required String hospitalLocation,
     required String hospitalName,
-    required String password
+    required String password,
+    required String floorNumbers
 
 
   }) {
@@ -62,7 +65,8 @@ class AppCubit extends Cubit<AppState> {
       hospitalLocation:hospitalLocation,
       hospitalName:hospitalName,
       password:password,
-      type: 'ADMIN'
+      type: 'ADMIN',
+      floorNumbers:floorNumbers
     );
     FirebaseFirestore.instance
         .collection('admins')
@@ -105,7 +109,7 @@ class AppCubit extends Cubit<AppState> {
       admins1.forEach((element) {
 
         isSuper=true;
-        if(element.type=='ADMIN'){
+        if(element.type.toString().toUpperCase()=='ADMIN'){
           admins2.add(element);
         }
 
@@ -139,7 +143,8 @@ class AppCubit extends Cubit<AppState> {
     required String id,
     required String hospitalLocation,
     required String hospitalName,
-    required String password
+    required String password,
+    required String floorNumbers
 
   }) async {
     emit(UpdateAdminDataLoadingState());
@@ -152,7 +157,8 @@ class AppCubit extends Cubit<AppState> {
       hospitalName:hospitalName ,
       password: password,
       uId: uId,
-      type: 'admin'
+      type: 'ADMIN',
+      floorNumbers:floorNumbers
 
 
     );

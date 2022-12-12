@@ -29,6 +29,13 @@
             {
               "client_id": "134827706672-ivpsf906jaa9o1fdo9ar55j0f8ahv632.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "134827706672-j50bjcq4ca3n4enrf682q36f3g69egn8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.teleDoctorSuperAdmin"
+              }
             }
           ]
         }
@@ -58,6 +65,13 @@
             {
               "client_id": "134827706672-ivpsf906jaa9o1fdo9ar55j0f8ahv632.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "134827706672-j50bjcq4ca3n4enrf682q36f3g69egn8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.teleDoctorSuperAdmin"
+              }
             }
           ]
         }

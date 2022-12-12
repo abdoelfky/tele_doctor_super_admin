@@ -14,7 +14,17 @@ Future<void> main() async {
   // بيتأكد ان كل حاجه هنا في الميثود خلصت و بعدين يتفح الابلكيشن
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options:
+  const FirebaseOptions(
+      apiKey: "AIzaSyAIDHvKqrJ4g4kz49y00xmMPaTE8mi1Y7Q",
+      authDomain: "teledoctor-94083.firebaseapp.com",
+      projectId: "teledoctor-94083",
+      storageBucket: "teledoctor-94083.appspot.com",
+      messagingSenderId: "134827706672",
+      appId: "1:134827706672:web:86101e76d071e9130920f5",
+      measurementId: "G-B22NTSV2D0" ),
+  );
   await CacheHelper.init();
   Widget widget;
   bool onBoarding =false;

@@ -5,6 +5,7 @@ import '../cubit/app_state.dart';
 import '../shared/component/components.dart';
 import '../shared/constants/constants.dart';
 
+
 class AddAdminScreen extends StatelessWidget {
   var adminNameController = TextEditingController();
   var adminIdController = TextEditingController();

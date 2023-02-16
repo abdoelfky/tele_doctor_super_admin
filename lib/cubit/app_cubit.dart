@@ -134,6 +134,33 @@ class AppCubit extends Cubit<AppState> {
     });
   }
 
+
+  //search
+  String searchWord='';
+  List<AdminModel> searchResult=[];
+  void search()
+  {
+    if(searchWord!=''){
+      searchResult=[];
+      searchResult = admins2
+          .where((admin) =>
+          admin.name!.toLowerCase()
+              .contains(searchWord.toLowerCase()))
+          .toList();
+      emit(SearchDoneSuccessState());
+    }
+    else
+    {
+      searchWord='';
+      emit(SearchDoneSuccessState());
+
+    }
+
+  }
+
+
+
+
 //update admin data
   Future<void> updateAdminData({
     required String email,

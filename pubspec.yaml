@@ -43,6 +43,7 @@ dependencies:
   smooth_page_indicator:
   shared_preferences:
   restart_app:
+  advanced_search:
 
   #FIREBASE
   firebase_core:
@@ -51,17 +52,24 @@ dependencies:
   firebase_storage:
   firestore_search:
   firebase_messaging:
-  firebase_core_platform_interface: 4.5.1
+  firebase_core_platform_interface:
+  firebase_core_desktop:
   activout_firebase_options_selector:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons:
+  msix: ^3.7.0
 flutter_icons:
   android: true
   ios: true
+  windows: true
   image_path: "images/AppLogo.png"
+
+msix_config:
+  display_name: teleDoctorSuperAdmin
+  logo_path: "images/AppLogo.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

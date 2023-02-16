@@ -25,6 +25,7 @@ Future<void> main() async {
   //     appId: "1:134827706672:web:86101e76d071e9130920f5",
   //     measurementId: "G-B22NTSV2D0" ),
   );
+
   await CacheHelper.init();
   Widget widget;
   bool onBoarding =false;

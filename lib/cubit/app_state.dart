@@ -27,6 +27,13 @@ class GetAdminsLoadingState extends AppState{}
 
 class GetAdminsSuccessState extends AppState{}
 
+
+//search states
+
+class SearchDoneSuccessState extends AppState{}
+
+
+
 class GetAdminsErrorState extends AppState{
   final error;
   GetAdminsErrorState(this.error);

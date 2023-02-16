@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tele_doctor_super_admin/modules/search_widget.dart';
 import 'package:tele_doctor_super_admin/modules/update_user_screen.dart';
 import '../cubit/app_cubit.dart';
 import '../cubit/app_state.dart';
@@ -21,7 +22,9 @@ class HomeScreen extends StatelessWidget {
         builder: (context, state) {
           var cubit = AppCubit.get(context);
           return Scaffold(
-            appBar: myAppBar(appBarText: 'Admins', icon: [
+            appBar: myAppBar(
+                appBarText: 'Admins',
+                icon: [
               Padding(
                 padding: const EdgeInsets.only(right: 15.0),
                 child: IconButton(
@@ -61,7 +64,8 @@ class HomeScreen extends StatelessWidget {
                       color: Colors.red[400],
                       size: 40,
                     )),
-              )
+              ),
+
             ]),
             body: RefreshIndicator(
               onRefresh: () async => cubit.getUsers(),
@@ -74,6 +78,11 @@ class HomeScreen extends StatelessWidget {
                       horizontal: size.width * .05),
                   child: Column(
                     children: [
+
+                      SearchWidget(),
+                      SizedBox(
+                        height: size.height*.03,
+                      ),
                       GridView.builder(
                         shrinkWrap: true,
                         physics: const BouncingScrollPhysics(),
@@ -124,6 +133,7 @@ Widget myCard(context, AdminModel admin) => InkWell(
             color: blue4, borderRadius: BorderRadius.circular(15)),
         child: Center(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CircleAvatar(
               backgroundColor: blue10,
